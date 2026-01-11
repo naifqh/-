@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نايف أبو قيس | حديث التخرج | محلل بيانات</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --black: #0a0a0a;
+            --dark: #1a1a1a;
+            --gold: #d4af37;
+            --light-gold: #f4e4a6;
+            --cream: #f5f5f0;
+            --gray: #888;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--black);
+            color: var(--cream);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* تصميم فاخر بسيط */
+        .elegant-section {
+            padding: 80px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* الهيدر */
+        .elegant-header {
+            text-align: center;
+            padding: 100px 5% 60px;
+            position: relative;
+        }
+
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .name {
+            font-size: 3.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            color: var(--cream);
+            position: relative;
+            display: inline-block;
+        }
+
+        .name::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .title {
+            font-size: 1.4rem;
+            color: var(--gold);
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            color: var(--gray);
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* بطاقة الجامعة */
+        .university-card {
+            background: linear-gradient(145deg, rgba(212, 175, 55, 0.05), rgba(0, 0, 0, 0.3));
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 2px;
+            padding: 40px;
+            margin: 60px auto;
+            max-width: 700px;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+
+        .uni-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .uni-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--gold);
+        }
+
+        .uni-info h3 {
+            font-size: 1.8rem;
+            color: var(--cream);
+            font-weight: 300;
+            margin-bottom: 5px;
+        }
+
+        .uni-degree {
+            color: var(--light-gold);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .uni-years {
+            color: var(--gray);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .uni-description {
+            color: var(--gray);
+            line-height: 1.8;
+            font-size: 1rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            padding-top: 20px;
+        }
+
+        /* الشهادات */
+        .certificates-section {
+            margin: 80px auto;
+            max-width: 900px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--cream);
+            font-weight: 300;
+            margin-bottom: 40px;
+            text-align: center;
+            letter-spacing: 2px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 60px;
+            height: 1px;
+            background: var(--gold);
+        }
+
+        .certificate-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .certificate-item:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+            transform: translateX(-10px);
+        }
+
+        .cert-title {
+            color: var(--light-gold);
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            font-weight: 400;
+        }
+
+        .cert-issuer {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .cert-skills {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .skill-tag {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--light-gold);
+            padding: 5px 12px;
+            border-radius: 1px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        /* المهارات */
+        .skills-section {
+            max-width: 900px;
+            margin: 80px auto;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            padding: 30px;
+        }
+
+        .category-title {
+            color: var(--gold);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            color: var(--gray);
+            margin-bottom: 10px;
+            padding-right: 20px;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .skill-list li::before {
+            content: '›';
+            position: absolute;
+            right: 0;
+            color: var(--gold);
+        }
+
+        /* المشاريع */
+        .projects-section {
+            max-width: 900px;
+            margin: 80px auto;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .project-title {
+            color: var(--light-gold);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .project-description {
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        /* التواصل */
+        .contact-section {
+            text-align: center;
+            padding: 80px 5%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 40px;
+        }
+
+        .contact-title {
+            color: var(--cream);
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .email-link {
+            display: inline-block;
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 15px 30px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+        }
+
+        .email-link:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: var(--gold);
+        }
+
+        .contact-note {
+            color: var(--gray);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* الفوتر */
+        .elegant-footer {
+            text-align: center;
+            padding: 40px 5%;
+            color: var(--gray);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            margin-top: 80px;
+        }
+
+        /* تأثيرات بسيطة */
+        .gold-line {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 40px auto;
+            width: 200px;
+        }
+
+        /* أنيميشن خفيف */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        /* تفاعل بسيط */
+        .interactive-element {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        /* تصميم للجوال */
+        @media (max-width: 768px) {
+            .name { font-size: 2.5rem; }
+            .title { font-size: 1.1rem; }
+            .description { font-size: 1rem; }
+            .university-card { padding: 25px; }
+            .uni-header { flex-direction: column; text-align: center; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .elegant-section { padding: 40px 5%; }
+        }
+    </style>
+</head>
+<body>
+    <!-- الهيدر -->
+    <header class="elegant-header fade-in">
+        <div class="header-content">
+            <h1 class="name">نايف أبو قيس</h1>
+            <div class="title">محلل بيانات | حديث التخرج</div>
+            <p class="description">
+                شاب طموح متخصص في تحليل البيانات، أجمع بين الدقة التحليلية والإبداع التقني. 
+                أبحث عن فرصة لأبدأ مسيرتي المهنية وأساهم بفاعلية في مجال تحويل البيانات إلى قرارات.
+            </p>
+        </div>
+    </header>
+
+    <!-- خط ذهبي -->
+    <div class="gold-line"></div>
+
+    <!-- التعليم -->
+    <section class="elegant-section">
+        <div class="university-card fade-in interactive-element">
+            <div class="uni-header">
+                <div class="uni-icon">
+                    <i class="fas fa-university"></i>
+                </div>
+                <div class="uni-info">
+                    <h3>جامعة الملك خالد</h3>
+                    <div class="uni-degree">بكالوريوس نظم المعلومات الإدارية</div>
+                    <div class="uni-years">٢٠٢١ - ٢٠٢٥ | حديث التخرج</div>
+                </div>
+            </div>
+            <p class="uni-description">
+                أنهيت دراستي الجامعية بتخصص نظم المعلومات الإدارية، حيث ركزت على الجانب التقني والتحليلي. 
+                خلال هذه السنوات، طورت فهمًا عميقًا لكيفية استخدام التقنية في حل المشكلات الإدارية وتحسين العمليات.
+            </p>
+        </div>
+    </section>
+
+    <!-- الشهادات -->
+    <section class="certificates-section fade-in">
+        <h2 class="section-title">الشهادات والمهارات</h2>
+        
+        <div class="certificate-item interactive-element">
+            <div class="cert-title">أساسيات تحليل البيانات</div>
+            <div class="cert-issuer">دورة تدريبية متخصصة | ٢٠٢٣</div>
+            <div class="cert-skills">
+                <span class="skill-tag">تحليل البيانات</span>
+                <span class="skill-tag">Excel متقدم</span>
+                <span class="skill-tag">التقارير</span>
+            </div>
+        </div>
+
+        <div class="certificate-item interactive-element">
+            <div class="cert-title">Power BI للمبتدئين</div>
+            <div class="cert-issuer">دورة تدريبية | ٢٠٢٤</div>
+            <div class="cert-skills">
+                <span class="skill-tag">Power BI</span>
+                <span class="skill-tag">تصور البيانات</span>
+                <span class="skill-tag">Dashboards</span>
+            </div>
+        </div>
+
+        <div class="certificate-item interactive-element">
+            <div class="cert-title">أساسيات SQL</div>
+            <div class="cert-issuer">دورة تدريبية | ٢٠٢٤</div>
+            <div class="cert-skills">
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">قواعد البيانات</span>
+                <span class="skill-tag">الاستعلامات</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- المهارات -->
+    <section class="skills-section fade-in">
+        <h2 class="section-title">المهارات التقنية</h2>
+        
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3 class="category-title">تحليل البيانات</h3>
+                <ul class="skill-list">
+                    <li>Microsoft Excel المتقدم</li>
+                    <li>Power BI الأساسي</li>
+                    <li>تحليل البيانات الوصفية</li>
+                    <li>إنشاء التقارير</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3 class="category-title">التقنية</h3>
+                <ul class="skill-list">
+                    <li>أساسيات SQL</li>
+                    <li>Python للأغراض العامة</li>
+                    <li>إدارة قواعد البيانات</li>
+                    <li>أساسيات البرمجة</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3 class="category-title">الشخصية</h3>
+                <ul class="skill-list">
+                    <li>التعلم السريع</li>
+                    <li>التحليل المنطقي</li>
+                    <li>العمل الجماعي</li>
+                    <li>الاهتمام بالتفاصيل</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- المشاريع -->
+    <section class="projects-section fade-in">
+        <h2 class="section-title">مشاريع أكاديمية</h2>
+        
+        <div class="project-card interactive-element">
+            <h3 class="project-title">تحليل بيانات مبيعات</h3>
+            <p class="project-description">
+                مشروع تخرج يتناول تحليل بيانات مبيعات افتراضية باستخدام Excel، 
+                بهدف اكتشاف الأنماط وتقديم توصيات لزيادة المبيعات.
+            </p>
+        </div>
+
+        <div class="project-card interactive-element">
+            <h3 class="project-title">تصميم قاعدة بيانات</h3>
+            <p class="project-description">
+                تصميم وتنفيذ قاعدة بيانات لنظام إداري بسيط، مع التركيز على 
+                كفاءة الاستعلامات وسهولة الاستخدام.
+            </p>
+        </div>
+    </section>
+
+    <!-- التواصل -->
+    <section class="contact-section fade-in">
+        <div class="contact-card">
+            <h2 class="contact-title">للتواصل</h2>
+            <a href="mailto:xxnnaaiiffxx@gmail.com" class="email-link interactive-element">
+                xxnnaaiiffxx@gmail.com
+            </a>
+            <p class="contact-note">
+                أبحث عن فرصة للتدريب أو العمل المناسب لمهاراتي كحديث تخرج. 
+                مستعد للتعلم والعطاء في بيئة عمل محفزة.
+            </p>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer class="elegant-footer">
+        <p>نايف أبو قيس | حديث التخرج في نظم المعلومات الإدارية | ٢٠٢٥</p>
+    </footer>
+
+    <script>
+        // تفعيل الأنيميشن
+        document.addEventListener('DOMContentLoaded', function() {
+            // تأثير التمرير اللطيف
+            const elements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            elements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+
+            // تأثير التفاعل البسيط
+            document.querySelectorAll('.interactive-element').forEach(element => {
+                element.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+                
+                element.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // تأثير بسيط عند النقر على البريد
+            const emailLink = document.querySelector('.email-link');
+            if (emailLink) {
+                emailLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    alert('البريد الإلكتروني: xxnnaaiiffxx@gmail.com\n\nشكرًا لاهتمامك، سأتواصل معك قريبًا.');
+                });
+            }
+        });
+
+        // تأثير بسيط للتمرير
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.fade-in');
+            
+            parallaxElements.forEach((el, index) => {
+                const speed = 0.1 + (index * 0.02);
+                el.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
